@@ -11,7 +11,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 import {CustomModule} from './custom.module';
 import {UserComponent} from './users/user.component';
-
+import {TodoComponent} from "./todos/todo.component";
 
 @NgModule({
   imports: [
