@@ -34,7 +34,7 @@ describe('Todo component', () => {
         },
         {
           id: "58895985ae3b752b124e7663",
-          owner: "Fry",
+          owner: "Barry",
           status: true,
           body: "Ullamco irure laborum magna dolor non. Anim occaecat adipisicing cillum eu magna in.",
           category: "homework"
@@ -55,11 +55,11 @@ describe('Todo component', () => {
     });
   }));
 
-  it('can retrieve Pat by ID', () => {
-    todoComponent.setId('pat_id');
+  it('can retrieve Barry by ID', () => {
+    todoComponent.setId('58895985ae3b752b124e7663');
     expect(todoComponent.todo).toBeDefined();
-    expect(todoComponent.todo.owner).toBe('Pat');
-    expect(todoComponent.todo.category).toBe('pat@something.com');
+    expect(todoComponent.todo.owner).toBe('Barry');
+    expect(todoComponent.todo.category).toBe('homework');
   });
 
   it('returns undefined for Santa', () => {
