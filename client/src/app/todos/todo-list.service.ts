@@ -31,7 +31,7 @@ export class TodoListService {
       searchOwner = searchOwner.toLowerCase();
 
       filteredTodos = filteredTodos.filter(todo => {
-        return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
+        return todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
       });
     }
 
@@ -40,11 +40,11 @@ export class TodoListService {
       searchStatus = searchStatus.toLowerCase();
       if (searchStatus == "complete") {
         filteredTodos = filteredTodos.filter((todo: Todo) => {
-          return todo.status;
+          return todo.status == true;
         });
-      } else {
+      } else if (searchStatus == "incomplete"){
         filteredTodos = filteredTodos.filter((todo: Todo) => {
-          return !todo.status;
+          return todo.status != true;
         });
       }
     }
@@ -53,7 +53,7 @@ export class TodoListService {
     if (searchBody != null) {
       searchBody = searchBody.toLowerCase();
       filteredTodos = filteredTodos.filter(todo => {
-        return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
+        return todo.body.toLowerCase().indexOf(searchBody) !== -1;
       });
     }
 

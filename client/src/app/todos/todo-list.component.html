@@ -2,15 +2,18 @@
   <div flex-gt-sm="80" flex-offset-gt-sm="10">
     <mat-card>
       <mat-card-title id="todo-list-title">Todo</mat-card-title>
+
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
           <input
+            matTooltip="Barry / Blanche / Dawn / Fry / Roberta / Workman"
             matInput
             id="todoOwner"
             placeholder="Filter by owner"
             (input)="updateOwner($event.target.value)">
         </mat-form-field>
+
         <mat-form-field>
           <input
             matInput
@@ -22,16 +25,25 @@
         <!--<mat-form-field>-->
         <!--<input matInput id="todoCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
         <!--</mat-form-field>-->
+        <mat-form-field>
+          <input
+            matTooltip="Complete / Incomplete"
+            matInput
+            id="todoStatus"
+            type="text"
+            placeholder="Filter by Status"
+            (input)="updateStatus($event.target.value)">
+        </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.email" *ngFor="let todo of this.filteredTodos">
+          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filteredTodos">
             <mat-expansion-panel-header>
 
-              <mat-panel-title matTooltip="email: {{todo.email}}">{{todo.name}}</mat-panel-title>
+              <mat-panel-title matTooltip="Category: {{todo.status}}">{{todo.owner}}</mat-panel-title>
 
             </mat-expansion-panel-header>
-            <mat-panel-description>Works for {{todo.company}}</mat-panel-description>
-            <mat-panel-description>Age: {{todo.age}} years old</mat-panel-description>
+            <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
+            <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
 
           </mat-expansion-panel>
         </mat-accordion>
