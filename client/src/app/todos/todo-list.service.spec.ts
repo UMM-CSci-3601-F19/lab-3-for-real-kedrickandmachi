@@ -96,13 +96,19 @@ describe('Todo list service: ', () => {
 
   it('filterTodos() filters by Status', () => {
     expect(testTodos.length).toBe(3);
-    let todoStatus = 37;
-    expect(todoListService.filterTodos(testTodos, null, todoStatus).length).toBe(2);
+    let todoStatus = 'false';
+    expect(todoListService.filterTodos(testTodos, null, todoStatus).length).toBe(5);
+  });
+
+  it('filterTodos() filters by Category', () => {
+    expect(testTodos.length).toBe(3);
+    let todoStatus = 'false';
+    expect(todoListService.filterTodos(testTodos, null, todoStatus).length).toBe(5);
   });
 
   it('filterTodos() filters by Owner and Status', () => {
     expect(testTodos.length).toBe(3);
-    let todoStatus = 37;
+    let todoStatus = 'true';
     let todoOwner = 'i';
     expect(todoListService.filterTodos(testTodos, todoOwner, todoStatus).length).toBe(1);
   });
