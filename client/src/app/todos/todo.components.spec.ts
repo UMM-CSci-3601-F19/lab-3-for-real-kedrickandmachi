@@ -56,15 +56,14 @@ describe('Todo component', () => {
   }));
 
   it('can retrieve Pat by ID', () => {
-    TodoComponent.setId('pat_id');
+    todoComponent.setId('pat_id');
     expect(todoComponent.todo).toBeDefined();
-    expect(todoComponent.todo.name).toBe('Pat');
-    expect(todoComponent.todo.email).toBe('pat@something.com');
+    expect(todoComponent.todo.owner).toBe('Pat');
+    expect(todoComponent.todo.category).toBe('pat@something.com');
   });
 
   it('returns undefined for Santa', () => {
     todoComponent.setId('Santa');
     expect(todoComponent.todo).not.toBeDefined();
   });
-
 });

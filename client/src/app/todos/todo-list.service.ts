@@ -22,7 +22,7 @@ export class TodoListService {
     return this.httpClient.get<Todo>(this.todoUrl + '/' + id);
   }
 
-  filterTodos(todos: Todo[], searchOwner?: string, searchStatus?: string): Todo[] {
+  filterTodos(todos: Todo[], searchOwner?: string, searchStatus?: string, searchBody?: string): Todo[] {
 
     let filteredTodos = todos;
 
@@ -47,6 +47,14 @@ export class TodoListService {
           return !todo.status;
         });
       }
+    }
+
+    //Filter by body
+    if (searchBody != null) {
+      searchBody = searchBody.toLowerCase();
+      filteredTodos = filteredTodos.filter(todo => {
+        return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
+      });
     }
 
     return filteredTodos;
