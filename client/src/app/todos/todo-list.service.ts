@@ -40,11 +40,11 @@ export class TodoListService {
       searchStatus = searchStatus.toLowerCase();
       if (searchStatus == "complete") {
         filteredTodos = filteredTodos.filter((todo: Todo) => {
-          return todo.status == true;
+          return todo.status;
         });
-      } else if (searchStatus == "incomplete"){
+      } else if (searchStatus == "incomplete") {
         filteredTodos = filteredTodos.filter((todo: Todo) => {
-          return todo.status != true;
+          return !todo.status;
         });
       }
     }
