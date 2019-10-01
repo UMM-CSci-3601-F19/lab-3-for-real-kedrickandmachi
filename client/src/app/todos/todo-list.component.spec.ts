@@ -15,13 +15,13 @@ describe('Todo list', () => {
   let fixture: ComponentFixture<TodoListComponent>;
 
   let todoListServiceStub: {
-    getTodo: () => Observable<Todo[]>
+    getTodos: () => Observable<Todo[]>
   };
 
   beforeEach(() => {
     // stub TodoService for test purposes
     todoListServiceStub = {
-      getTodo: () => of([
+      getTodos: () => of([
         {
           id: "58895985a22c04e761776d54",
           owner: "Blanche",
@@ -64,24 +64,24 @@ describe('Todo list', () => {
   }));
 
   it('contains all the todos', () => {
-    expect(todoList.todo.length).toBe(3);
+    expect(todoList.todos.length).toBe(3);
   });
 
-  it('contains todos \'Chris\'', () => {
-    expect(todoList.todo.some((todo: Todo) => todo.owner === 'Chris')).toBe(true);
+  it('contains todos \'Blanche\'', () => {
+    expect(todoList.todos.some((todo: Todo) => todo.owner === 'Blanche')).toBe(true);
   });
 
-  it('contain todos \'Jamie\'', () => {
-    expect(todoList.todo.some((todo: Todo) => todo.owner === 'Jamie')).toBe(true);
+  it('contain todos \'Barry\'', () => {
+    expect(todoList.todos.some((todo: Todo) => todo.owner === 'Barry')).toBe(true);
   });
 
   it('doesn\'t contain todos \'Santa\'', () => {
-    expect(todoList.todo.some((todo: Todo) => todo.owner === 'Santa')).toBe(false);
+    expect(todoList.todos.some((todo: Todo) => todo.owner === 'Santa')).toBe(false);
   });
 
-  it('has two todos that are 37 years old', () => {
-    expect(todoList.todo.filter((todo: Todo) => todo.status === true).length).toBe(2);
-  });
+  // it('contains \'magna\' inside of the body', () => {
+  //   expect(todoList.todos.filter((to-do: To-do) => to-do.body === 'magna')).toBe(2);
+  // });
 });
 
 describe('Misbehaving Todo List', () => {
@@ -117,7 +117,7 @@ describe('Misbehaving Todo List', () => {
 
   it('generates an error if we don\'t set up a TodoListService', () => {
     // Since the observer throws an error, we don't expect todos to be defined.
-    expect(todoList.users).toBeUndefined();
+    expect(todoList.todos).toBeUndefined();
   });
 });
 

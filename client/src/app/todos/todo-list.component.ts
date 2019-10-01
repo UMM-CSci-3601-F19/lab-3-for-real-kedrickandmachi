@@ -56,7 +56,7 @@ export class TodoListComponent implements OnInit {
       this.todoListService.filterTodos(
         this.todos,
         this.todoOwner,
-        this.todoCategory,
+        this.todoStatus,
         this.todoBody);
   }
 
